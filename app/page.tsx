@@ -1,65 +1,135 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const options = [
+  {
+    href: "/design-a",
+    label: "A",
+    name: "Ember & Indigo",
+    desc: "Dark. Warm. Night market energy. Deep indigo background, amber glow accents.",
+    bg: "linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1c1917 100%)",
+    accent: "#f59e0b",
+    textColor: "#ffffff",
+    subColor: "rgba(255,255,255,0.5)",
+  },
+  {
+    href: "/design-b",
+    label: "B",
+    name: "Loose Handwriting",
+    desc: "Washi minimal + Caveat font. Warm white, big casual script headlines, underline-only form fields.",
+    bg: "linear-gradient(135deg, #f8f7f2 0%, #eee9e0 100%)",
+    accent: "#3730a3",
+    textColor: "#1a1a1a",
+    subColor: "#888",
+  },
+  {
+    href: "/design-c",
+    label: "C",
+    name: "Smoky Gradient",
+    desc: "Atmospheric. Moody. Full-bleed indigo-to-black, layered translucency, smoke and fire.",
+    bg: "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)",
+    accent: "#a5b4fc",
+    textColor: "#ffffff",
+    subColor: "rgba(255,255,255,0.5)",
+  },
+  {
+    href: "/design-d",
+    label: "D",
+    name: "Rough & Textured",
+    desc: "Rubik Dirt + Special Elite. Kraft paper bg, stamp-style type, double rules, woodblock energy.",
+    bg: "linear-gradient(135deg, #f0ece3 0%, #e4dfd4 100%)",
+    accent: "#2d2a6e",
+    textColor: "#1c1a14",
+    subColor: "#888",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main style={{
+      minHeight: "100vh",
+      background: "#09090f",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "60px 24px",
+      fontFamily: "'DM Sans', sans-serif",
+    }}>
+      <p style={{ color: "#5a5a7a", fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "16px" }}>
+        Marin Provisions — Design Exploration
+      </p>
+      <h1 style={{
+        color: "#ffffff",
+        fontSize: "clamp(26px, 4vw, 38px)",
+        fontFamily: "'Cormorant Garamond', serif",
+        fontWeight: 300,
+        marginBottom: "8px",
+        textAlign: "center",
+        letterSpacing: "-0.01em",
+      }}>
+        Three directions
+      </h1>
+      <p style={{ color: "#5a5a7a", fontSize: "14px", marginBottom: "56px", textAlign: "center" }}>
+        Click each to see the full site mockup.
+      </p>
+
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+        gap: "20px",
+        width: "100%",
+        maxWidth: "920px",
+      }}>
+        {options.map((opt) => (
+          <Link
+            key={opt.href}
+            href={opt.href}
+            style={{
+              display: "block",
+              background: opt.bg,
+              borderRadius: "14px",
+              padding: "36px 28px",
+              textDecoration: "none",
+              border: "1px solid rgba(255,255,255,0.06)",
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <div style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "30px",
+              height: "30px",
+              borderRadius: "50%",
+              background: opt.accent,
+              color: opt.label === "B" ? "#1e1b4b" : "#fff",
+              fontSize: "12px",
+              fontWeight: 500,
+              marginBottom: "20px",
+            }}>{opt.label}</div>
+            <h2 style={{
+              color: opt.textColor,
+              fontSize: "21px",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 400,
+              marginBottom: "10px",
+              letterSpacing: "-0.01em",
+            }}>{opt.name}</h2>
+            <p style={{
+              color: opt.subColor,
+              fontSize: "13px",
+              lineHeight: 1.65,
+              margin: 0,
+            }}>{opt.desc}</p>
+            <div style={{
+              marginTop: "28px",
+              fontSize: "11px",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: opt.accent,
+            }}>View mockup →</div>
+          </Link>
+        ))}
+      </div>
+    </main>
   );
 }
