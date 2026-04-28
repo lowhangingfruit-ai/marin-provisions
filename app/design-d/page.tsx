@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 
 const cateringPackages = [
@@ -120,14 +119,12 @@ export default function DesignD() {
         <nav style={{
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
           padding: "16px 40px",
-          display: "flex", justifyContent: "space-between", alignItems: "center",
+          display: "flex", justifyContent: "center", alignItems: "center",
           background: p.navBg, backdropFilter: "blur(8px)",
           borderBottom: `2px solid rgba(0,0,0,0.08)`,
           transition: "background 0.3s",
         }}>
-          <Link href="/" style={{ color: "rgba(0,0,0,0.3)", fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", textDecoration: "none", fontFamily: "'Special Elite', cursive" }}>← back</Link>
           <span style={{ fontFamily: "'Special Elite', cursive", fontSize: "16px", letterSpacing: "0.08em", textTransform: "uppercase", color: p.ink }}>Marin Provisions</span>
-          <span style={{ color: "rgba(0,0,0,0.2)", fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "'Special Elite', cursive" }}>D</span>
         </nav>
 
         {/* Palette switcher */}
